@@ -50,38 +50,44 @@ elFinder.prototype.commands.rm = function() {
 			files = this.hashes(hashes);
 			
 			fm.lockfiles({files : files});
-			fm.confirm({
-				title  : self.title,
-				text   : 'confirmRm',
-				accept : {
-					label    : 'btnRm',
-					callback : function() {  
-						fm.request({
-							data   : {cmd  : 'rm', targets : files}, 
-							notify : {type : 'rm', cnt : cnt},
-							preventFail : true
-						})
-						.fail(function(error) {
-							dfrd.reject(error);
-						})
-						.done(function(data) {
-							dfrd.done(data);
-							goroot && fm.exec('open', goroot)
-						})
-						.always(function() {
+
+			var acceptCallback = function() {  
+				fm.request({
+					data   : {cmd  : 'rm', targets : files}, 
+					notify : {type : 'rm', cnt : cnt},
+					preventFail : true
+				})
+				.fail(function(error) {
+					dfrd.reject(error);
+				})
+				.done(function(data) {
+					dfrd.done(data);
+					goroot && fm.exec('open', goroot)
+				})
+				.always(function() {
+					fm.unlockfiles({files : files});
+				});
+			};
+
+			if (self.options.dialog) {
+				fm.confirm({
+					title  : self.title,
+					text   : 'confirmRm',
+					accept : {
+						label    : 'btnRm',
+						callback : acceptCallback,
+					cancel : {
+						label    : 'btnCancel',
+						callback : function() {
 							fm.unlockfiles({files : files});
-						});
+							fm.selectfiles({files : files});
+							dfrd.reject();
+						}
 					}
-				},
-				cancel : {
-					label    : 'btnCancel',
-					callback : function() {
-						fm.unlockfiles({files : files});
-						fm.selectfiles({files : files});
-						dfrd.reject();
-					}
-				}
-			});
+				});
+			} else {
+				acceptCallback();
+			}
 		}
 			
 		return dfrd;
