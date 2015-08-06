@@ -260,7 +260,10 @@ elFinder.prototype._options = {
 			}
 		},
 
-		help : {view : ['about', 'shortcuts', 'help']}
+		help : {view : ['about', 'shortcuts', 'help']},
+
+		// enables confirm dialog to be shown when requesting to delete a file
+		rm: { dialog: true }
 	},
 	
 	/**
