@@ -22,11 +22,10 @@ Contents
 * [Downloads](#downloads)
 * [FAQs](#faqs)
 * [3rd Party Connectors](#3rd-party-connectors)
-* [3rd Party Volumes](3rd-party-volumes)
+* [3rd Party Volume Drivers](3rd-party-volume-drivers)
 * [Support](#support)
 * [Authors](#authors)
 * [License](#license)
-
 
 Features
 --------
@@ -101,6 +100,9 @@ FAQs
 ### Should I use elFinder builds (compressed) or source (uncompressed)?
 
 For debugging and development, use the [source](#source-uncompressed). For production, use [builds](#builds-compressed).
+
+### How do I integrate elFinder with CKEditor/TinyMCE/elRTE/etc...?
+Check out the [wiki](https://github.com/studio-42/elFinder/wiki#howtos) for individual instructions.
 
 3rd party connectors
 --------------------
