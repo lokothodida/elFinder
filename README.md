@@ -14,6 +14,19 @@ elFinder is an open-source file manager for web, written in JavaScript using
 jQuery UI. Creation is inspired by simplicity and convenience of Finder program
 used in Mac OS X operating system.
 
+Contents
+--------
+* [Features](#features)
+* [Requirements](#requirements)
+* [Installation](#installation)
+* [Downloads](#downloads)
+* [FAQs](#faqs)
+* [3rd Party Connectors](#3rd-party-connectors)
+* [3rd Party Volumes](3rd-party-volumes)
+* [Support](#support)
+* [Authors](#authors)
+* [License](#license)
+
 
 Features
 --------
@@ -53,11 +66,41 @@ Requirements
  * Any web server
  * PHP 5.2+ (for thumbnails - mogrify utility or GD/Imagick module)
 
+Installation
+------------
+### Builds (compressed)
+ 1. Download and unzip one of the [builds](#downloads) below to your PHP server
+ 2. Rename `/php/connector.minimal.php-dist` to `/php/connector.minimal.php`
+ 3. Load `/elfinder.html` in your browser to run elFinder
+
+### Source (uncompressed)
+ 1. Clone this repository to your PHP server
+
+      ```
+      $ git clone https://github.com/Studio-42/elFinder.git
+      ```
+
+ 2. Rename `/php/connector.php-dist` to `/php/connector.php`
+ 3. Load `/elfinder.src.html` in your browser to run elFinder
+
 Downloads
 ------------
- + [elFinder 2.x (RC1)](https://github.com/downloads/Studio-42/elFinder/elfinder-2.0-rc1.tar.gz)
+ + [elFinder 2.0 (RC1)](https://github.com/downloads/Studio-42/elFinder/elfinder-2.0-rc1.tar.gz)
  + [elFinder 2.x (Nightly)](http://nao-pon.github.io/elFinder-nightly/latests/elfinder-2.x.zip)
  + [elFInder 2.1 (Nightly)](http://nao-pon.github.io/elFinder-nightly/latests/elfinder-2.1.zip)
+
+FAQs
+------------
+### Which version of elFinder should I use?
+* **2.0** if you want to use the last official release (2012).
+
+* **2.x** if you want to use 2.0 with some security and bug fixes (*recommended*).
+
+* **2.1** if you want to try the experimental features being introduced in the next major release (*bleeding edge, but potentially unstable*).
+
+### Should I use elFinder builds (compressed) or source (uncompressed)?
+
+For debugging and development, use the [source](#source-uncompressed). For production, use [builds](#builds-compressed).
 
 3rd party connectors
 --------------------
