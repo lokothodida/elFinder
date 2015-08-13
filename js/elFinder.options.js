@@ -145,7 +145,9 @@ elFinder.prototype._options = {
 			// allow to return filers info
 			folders  : false,
 			// action after callback (""/"close"/"destroy")
-			oncomplete : ''
+			oncomplete : '',
+			// allow call to file url to be asynchronous
+			async : false,
 		},
 		// "upload" command options.
 		upload : {
