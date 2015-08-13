@@ -891,17 +891,24 @@ window.elFinder = function(node, opts) {
 		}
 		
 		if (file.url == '1') {
-			this.request({
-				data : {cmd : 'url', target : hash},
-				preventFail : true,
-				options: {async: false}
-			})
-			.done(function(data) {
-				file.url = data.url || '';
-			})
-			.fail(function() {
-				file.url = '';
-			});
+			if (!opts.commandsOptions.getfile.async) {
+				this.request({
+					data : {cmd : 'url', target : hash},
+					preventFail : true,
+					options: {async: false}
+				})
+				.done(function(data) {
+					file.url = data.url || '';
+				})
+				.fail(function() {
+					file.url = '';
+				});
+			} else {
+				file.url = this.request({
+					data : {cmd : 'url', target : hash},
+					preventFail : true,
+				});
+			}
 		}
 		
 		if (file.url) {
